@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RotaLoginMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+        @{
+            if (!User?.Identity?.IsAuthenticated ?? false)
+            {
+             Layout = "~/Views/Shared/_Layout.cshtml";
+             <meta http-equiv='refresh' content='0; URL= https://localhost:44317/Account/Login'>
+            }else{  
+                   <header>
+                   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="" asp-action="">RotaLoginMVC</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="People" asp-action="Index">Pessoas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Teams" asp-action="Index">Equipes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cities" asp-action="Index">Cidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Files" asp-action="Upload">Rotas</a>
+                        </li>                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Create">Cadastrar Usuário</a>
+                        </li>
+                        <li style = "margin-left: auto;" class="nav-item">
+                            <u style = "text-decoration: none; padding-right: 20px">Bem-Vindo: @User.Identity.Name</u>
+                            <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Sair</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                 </nav> 
+                   </header>
+                        <div class="container">
+                        <main role="main" class="pb-3">
+                            @RenderBody()
+                        </main>
+                    </div>
+                    <br />
+                    <br />
+                <footer class="border-top footer">
+                    <div class="container" style="text-align:center;">
+                        &copy; 2022 - RotaLoginMVC - Todos os direitos reservados a Antonio e 5by5
+                    </div>
+                </footer>     
+                }
+            }
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

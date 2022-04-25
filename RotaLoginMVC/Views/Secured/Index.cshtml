@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+}
+
+<h1>Index</h1>
+
+@using Microsoft.AspNetCore.Authentication
+
+<h2>Claims</h2>
+
+<dl>
+    @foreach (var claim in User.Claims)
+   {
+       <dt>@claim.Type</dt>
+       <dd>@claim.Value</dd>
+   }
+</dl>
+
+<h2>Properties</h2>
+
+<dl>
+    @foreach (var prop in (await Context.AuthenticateAsync()).Properties.Items)
+   {
+       <dt>@prop.Key</dt>
+       <dd>@prop.Value</dd>
+   }
+</dl>
