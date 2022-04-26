@@ -22,7 +22,7 @@ namespace RotaLoginMVC.Controllers
         {
             return View();
         }
-        public IActionResult AccessDenied()
+        public IActionResult AccessAllowed()
         {
             return View();
         }
