@@ -134,9 +134,7 @@ namespace RotaLoginMVC.Controllers
             }
 
             var citySelected = await CitiesService.Get(cityId);
-
             await GenerateDoc.Write(routes, dataOptionsSelected, teamsSelected, serviceName, citySelected);
-
             return View();
         }
     }

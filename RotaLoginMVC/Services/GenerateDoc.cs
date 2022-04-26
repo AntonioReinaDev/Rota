@@ -30,7 +30,7 @@ namespace RotaLoginMVC.Services
             var indexGeneral = 0;
 
             var user = System.Environment.UserName;
-            var filename = $@"C:\Users\{user}\Desktop\Rota-{seviceSelected}-{citySelected.Name}-{DateTime.Now:dd-MM-yyyy}.docx";
+            var filename = $@"C:\Users\{user}\Desktop\Rota-{seviceSelected}-{citySelected.Name}-{DateTime.Now:dd-MM-yyyy-HH-mm-ss}.docx";
 
             using (FileStream fileStream = new(filename, FileMode.CreateNew))
             {
@@ -41,9 +41,11 @@ namespace RotaLoginMVC.Services
                     foreach (var team in teamsSelected)
                     {
                         sw.WriteLine("Equipe: " + team.Name);
-                        sw.WriteLine("--------------------------------------------------------------");
+                        sw.WriteLine();
+                        sw.WriteLine();
                         sw.WriteLine("Rotas:");
-                        sw.WriteLine("--------------------------------------------------------------");
+                        sw.WriteLine();
+                        sw.WriteLine();
 
                         for (int i = 0; i < division; i++)
                         {

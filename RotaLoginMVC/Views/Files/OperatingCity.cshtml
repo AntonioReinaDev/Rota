@@ -14,16 +14,16 @@
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 			<div class="form-group">
-				<label class="control-label">Tipos de Serviços:</label><br />
+				<label class="control-label" style = "text-align : center;"><strong>Tipos de Serviços:</strong></label><br />
 				<select asp-items="@(new SelectList(ViewBag.Services, @ViewBag.Services))" class="form-control" name="serviceName" id="serviceName" onchange="getService()">
-					<option value="default">SELECIONE UM SERVIÇO</option>
+					<option value="default">>--SELECIONE UM SERVIÇO--<</option>
 				</select>
 			</div>
 
 			<div class="form-group" id="citiesList" style="display:none;">
-				<label class="control-label">Cidade de Operação:</label><br />
+				<label class="control-label"><strong>Cidade de Operação:</strong></label><br />
 				<select asp-items="@(new SelectList(ViewBag.Cities,"Id", "CityState"))" class="form-control" name="OperatingCity" id="OperatingCity" onchange="getOperatingCity()">
-					<option value="default">SELECIONE UMA CIDADE</option>
+					<option value="default">>--SELECIONE UMA CIDADE--<</option>
 				</select>
 			</div>
 			<br />
@@ -33,7 +33,6 @@
 		</form>
 	</div>
 </div>
-
 
 <script type="text/javascript">
 
