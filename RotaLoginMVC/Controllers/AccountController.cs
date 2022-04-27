@@ -40,7 +40,7 @@ namespace RotaLoginMVC.Controllers
                     Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(appUser, password, false, false);
                     if (result.Succeeded)
                     {
-                        return Redirect(returnnull ?? "/");
+                        return RedirectToAction("AccessAllowed", "Account");
                     }
                 }
                 ModelState.AddModelError(nameof(email), "Falha de login: Email ou senha inválidos");
