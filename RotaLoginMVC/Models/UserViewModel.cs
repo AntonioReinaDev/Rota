@@ -2,7 +2,7 @@
 
 namespace RotaLoginMVC.Models
 {
-    public class User
+    public class UserViewModel
     {
         [Required(ErrorMessage = "Campo de preenchimento obrigatório")]
         public string Name { get; set; }

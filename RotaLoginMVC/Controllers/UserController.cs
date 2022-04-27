@@ -25,7 +25,7 @@ namespace RotaLoginMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(User user)
+        public async Task<IActionResult> Create(UserViewModel user)
         {
             ApplicationUser appUser = new ApplicationUser
             {
@@ -47,26 +47,6 @@ namespace RotaLoginMVC.Controllers
                 }
             }
             return View(user);
-        }
-        [HttpPost]
-        public async Task<IActionResult> CreateRole(UserRole userRole)
-        {
-            if (ModelState.IsValid)
-            {
-                IdentityResult result = await _roleManager.CreateAsync(new ApplicationRole() { Name = userRole.RoleName });
-                if (result.Succeeded)
-                {
-                    ViewBag.Message = "Função criada com sucesso";
-                }
-                else
-                {
-                    foreach (IdentityError error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
-            }
-            return View();
         }
     }
 }
